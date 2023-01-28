@@ -1,9 +1,11 @@
 package ch.tbz.com;
 
-import ch.tbz.com.Garage;
-
-public class main {
-
+public class Starter {
+    /**
+     *
+     * @param args
+     * @throws ValidInputException
+     */
     public static void main(String[] args) throws ValidInputException {
         Garage garage = new Garage();
         garage.fillGarage();

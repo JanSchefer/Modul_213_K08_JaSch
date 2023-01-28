@@ -3,35 +3,40 @@ package ch.tbz.com;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Garage implements Renting{
     Scanner sc = new Scanner(System.in);
-    ArrayList<Car> cars = new ArrayList<Car>();
-    ArrayList<Bike> bikes = new ArrayList<Bike>();
+    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Bike> bikes = new ArrayList<>();
     Boolean isRunning = true;
 
-
     public void fillGarage() {
-        cars.add(new Car("auto8", true, 4, true));
-        cars.add(new Car("auto2", false, 4, true));
+        cars.add(new Car("auto4", true, 4, true));
+        cars.add(new Car("auto2", false, 2, false));
+        cars.add(new Car("auto1", true, 1, true));
+        cars.add(new Car("auto3", false, 5, true));
 
-        bikes.add(new Bike("bike6", true, 2, true));
+        bikes.add(new Bike("bike3", true, 2, true));
         bikes.add(new Bike("bike2", false, 1, true));
+        bikes.add(new Bike("bike4", true, 1, false));
+        bikes.add(new Bike("bike1", true, 1, false));
     }
 
-    public void printGarage() throws ValidInputException {
+    public void printGarage() {
 
         do {
-            System.out.println(
-                            "\nChoose a Option:\n" +
-                            "1\tCars\n" +
-                            "2\tBikes\n" +
-                            "3\tRent\n" +
-                            "0\tQuit"
+            System.out.println("""
+                            Choose a Option:
+                            1\tCars
+                            2\tBikes
+                            3\tRent
+                            0\tQuit
+                            """
             );
             try {
-                validateResult(sc.nextInt());
+                handleInput(sc.nextInt());
             } catch (ValidInputException e){
                 System.out.println(e.getMessage());
             } catch (InputMismatchException e){
@@ -41,34 +46,48 @@ public class Garage implements Renting{
         } while (isRunning);
     }
 
-    public void validateResult(int input) throws ValidInputException {
+    /**
+     *
+     * @param input
+     * @throws ValidInputException
+     */
+    public void handleInput(int input) throws ValidInputException {
         switch (input) {
-            case 0:
+            //Quit
+            case 0 -> {
                 System.out.println("Bye");
                 isRunning = false;
-                break;
-            case 1: //Cars
+            }
+            //Cars
+            case 1 -> {
                 isRunning = true;
                 printResult(cars);
-                break;
-            case 2: //Bikes
+            }
+            //Bikes
+            case 2 -> {
                 isRunning = true;
                 printResult(bikes);
-                break;
-            case 3: //Rent
+            }
+            //Rent
+            case 3 -> {
                 getRentableVehicles();
                 isRunning = true;
-                break;
-            default:
-                throw new ValidInputException("please enter a valid number (0,1,2 or 3)");
-
-
+            }
+            default -> throw new ValidInputException("please enter a valid number (0,1,2 or 3)");
         }
     }
 
-
-    public <T extends Vehicle> void printResult(ArrayList<T> list) {
-        Collections.sort(list);
+    /**
+     *
+     * @param list
+     * @param <T>
+     */
+    public <T extends Vehicle> void printResult(List<T> list) {
+        try {
+            Collections.sort(list);
+        }catch (NullPointerException e) {
+            System.out.println("The list is empty");
+        }
         for (Vehicle vehicle : list) {
             System.out.println("Name:\t\t\t" + vehicle.getName());
             System.out.println("Is Available:\t" + vehicle.getAvailable());
@@ -85,6 +104,11 @@ public class Garage implements Renting{
         checkIfRentable( bikes);
     }
 
+    /**
+     *
+     * @param vehicles
+     * @param <T>
+     */
     private <T extends Vehicle> void checkIfRentable( ArrayList<T> vehicles) {
         for(Vehicle singleVehicle : vehicles){
             if(singleVehicle.getAvailable()){
