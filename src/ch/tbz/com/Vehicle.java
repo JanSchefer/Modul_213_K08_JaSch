@@ -1,6 +1,8 @@
+package ch.tbz.com;
 
+import java.util.ArrayList;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements Sorting {
 
     String name;
     Boolean isAvailable;
@@ -9,6 +11,17 @@ public abstract class Vehicle {
         this.name = name;
         this.isAvailable = isAvailable;
     }
+    public abstract void printResult();
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Vehicle) {
+            Vehicle otherVehicle = (Vehicle) o;
+            return getName().compareTo(otherVehicle.getName());
+        }
+        return 0;
+    }
+
 
     public String getName() {
         return name;
@@ -25,4 +38,5 @@ public abstract class Vehicle {
     public void setAvailable(Boolean available) {
         isAvailable = available;
     }
+
 }

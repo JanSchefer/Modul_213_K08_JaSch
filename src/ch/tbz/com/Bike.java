@@ -1,4 +1,6 @@
-public class Bike extends Vehicle{
+package ch.tbz.com;
+
+public class Bike extends Vehicle {
 
     int seats;
     boolean hasHelmet;
@@ -24,4 +26,11 @@ public class Bike extends Vehicle{
     public void setHasHelmet(boolean hasHelmet) {
         this.hasHelmet = hasHelmet;
     }
+
+    @Override
+    public void printResult() {
+        System.out.println("Seats:\t\t\t" + getSeats());
+        System.out.println("Helmet:\t\t\t" + hasHelmet);
+    }
+
 }
