@@ -48,7 +48,8 @@ public class Garage implements Renting{
     }
 
     /**
-     * The Input gets validated via the Switch and leads to the proper actions
+     * The Input gets validated via the Switch and leads to the proper actions.
+     * The process of choosing a value runs as long as the user doesn't quit in the menu
      * @param input
      * @throws ValidInputException
      */
@@ -79,7 +80,8 @@ public class Garage implements Renting{
     }
 
     /**
-     *
+     *  All cars or bikes get printed into the terminal. The Collection.sort() call sorts the chosen values by name.
+     *  If the chosen List is empty the user gets a notification
      * @param list
      * @param <T> is used, so we can send bike or car as attribute. It extends Vehicle to assure we get just car or bike.
      */
@@ -106,7 +108,7 @@ public class Garage implements Renting{
     }
 
     /**
-     *
+     * In this Method the cars or bikes get checked. If they are available than they get printed into the terminal
      * @param vehicles
      * @param <T>
      */
