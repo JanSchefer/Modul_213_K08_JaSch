@@ -12,6 +12,7 @@ public class Garage implements Renting{
     ArrayList<Bike> bikes = new ArrayList<>();
     Boolean isRunning = true;
 
+    // To fill the Array's, so that something can be printed
     public void fillGarage() {
         cars.add(new Car("auto4", true, 4, true));
         cars.add(new Car("auto2", false, 2, false));
@@ -47,7 +48,7 @@ public class Garage implements Renting{
     }
 
     /**
-     *
+     * The Input gets validated via the Switch and leads to the proper actions
      * @param input
      * @throws ValidInputException
      */
@@ -80,7 +81,7 @@ public class Garage implements Renting{
     /**
      *
      * @param list
-     * @param <T>
+     * @param <T> is used, so we can send bike or car as attribute. It extends Vehicle to assure we get just car or bike.
      */
     public <T extends Vehicle> void printResult(List<T> list) {
         try {

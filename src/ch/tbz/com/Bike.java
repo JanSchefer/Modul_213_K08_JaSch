@@ -6,7 +6,7 @@ public class Bike extends Vehicle {
     private boolean hasHelmet;
 
     /**
-     *
+     * Extends the abstract class Vehicle and inherits the fields name and isAvailable
      * @param name
      * @param isAvailable
      * @param seats
@@ -28,28 +28,11 @@ public class Bike extends Vehicle {
 
     /**
      *
-     * @param seats
-     */
-    public void setSeats(int seats) {
-        this.seats = seats;
-    }
-
-    /**
-     *
      * @return
      */
     public boolean hasHelmet() {
         return hasHelmet;
     }
-
-    /**
-     *
-     * @param hasHelmet
-     */
-    public void setHasHelmet(boolean hasHelmet) {
-        this.hasHelmet = hasHelmet;
-    }
-
     @Override
     public void printResult() {
         System.out.println("Seats:\t\t\t" + getSeats());

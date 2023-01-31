@@ -2,7 +2,7 @@ package ch.tbz.com;
 
 public class Starter {
     /**
-     *
+     * Starts the Programm (representative for main)
      * @param args
      * @throws ValidInputException
      */

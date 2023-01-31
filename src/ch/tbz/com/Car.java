@@ -1,13 +1,12 @@
 package ch.tbz.com;
 
-
 public class Car extends Vehicle {
 
     private int doors;
     private boolean hasHinge;
 
     /**
-     *
+     * Extends the abstract class Vehicle and inherits the fields name and isAvailable
      * @param name
      * @param isAvailable
      * @param doors
@@ -29,26 +28,10 @@ public class Car extends Vehicle {
 
     /**
      *
-     * @param doors
-     */
-    public void setDoors(int doors) {
-        this.doors = doors;
-    }
-
-    /**
-     *
      * @return
      */
     public boolean hasHinge() {
         return hasHinge;
-    }
-
-    /**
-     *
-     * @param hasHinge
-     */
-    public void setHasHinge(boolean hasHinge) {
-        this.hasHinge = hasHinge;
     }
 
     @Override

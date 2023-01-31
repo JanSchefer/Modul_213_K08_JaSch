@@ -7,7 +7,7 @@ public abstract class Vehicle implements Sorting {
     private Boolean isAvailable;
 
     /**
-     *
+     *  Parent Class to Car and Bike. Gives the fields name and isAvailable to them
      * @param name
      * @param isAvailable
      */
@@ -18,7 +18,7 @@ public abstract class Vehicle implements Sorting {
     public abstract void printResult();
 
     /**
-     *
+     * Used to sort the cars and bikes by name
      * @param o
      * @return
      */
@@ -40,26 +40,10 @@ public abstract class Vehicle implements Sorting {
 
     /**
      *
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     *
      * @return
      */
     public Boolean getAvailable() {
         return isAvailable;
-    }
-
-    /**
-     *
-     * @param available
-     */
-    public void setAvailable(Boolean available) {
-        isAvailable = available;
     }
 
 }
